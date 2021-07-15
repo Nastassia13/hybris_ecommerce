@@ -1,0 +1,11 @@
+/log
+/temp
+/bin/*
+!/bin/custom
+/bin/custom/*
+!/bin/custom/training
+/roles
+/data
+/idea-module-files
+/.idea
+*.class
