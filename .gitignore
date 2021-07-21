@@ -4,6 +4,7 @@
 !/bin/custom
 /bin/custom/*
 !/bin/custom/training
+!/bin/custom/questions
 /roles
 /data
 /idea-module-files

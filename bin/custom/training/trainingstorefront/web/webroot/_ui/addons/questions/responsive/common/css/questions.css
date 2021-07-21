@@ -1,0 +1,17 @@
+.questionCustomerName {
+    font-style: italic;
+}
+
+.questionCustomerText {
+    font-weight: bold;
+}
+
+.answerCustomerName {
+    font-style: italic;
+    margin-left: 50px;
+}
+
+.answerCustomerText {
+    font-weight: bold;
+    margin-left: 50px;
+}

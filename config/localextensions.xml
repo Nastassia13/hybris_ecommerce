@@ -9,13 +9,14 @@
     <extension name='commerceservicesbackoffice' />
     <extension name='solrfacetsearchbackoffice' />
     <extension name='solrserver' />
-	<extension name='trainingfulfilmentprocess'/>
-    <extension name='trainingcockpits'/>
-    <extension name='trainingcore'/>
-    <extension name='trainingfacades'/>
-    <extension name='trainingtest'/>
-    <extension name='traininginitialdata'/>
-    <extension name='trainingstorefront'/>
+	<extension name='questions' />
+	<extension name='trainingfulfilmentprocess' />
+    <extension name='trainingcockpits' />
+    <extension name='trainingcore' />
+    <extension name='trainingfacades' />
+    <extension name='trainingtest' />
+    <extension name='traininginitialdata' />
+    <extension name='trainingstorefront' />
     <extension name='ycommercewebservices' />
     <extension name='ycommercewebservicestest' />
     <extension name='electronicsstore' />
@@ -62,5 +63,6 @@
     <extension name='promotionengineatddtests' />
     <extension name='textfieldconfiguratortemplateatddtests' />
     <extension name='pcmbackofficesamplesaddon' />
+	<extension name="addonsupport" />
   </extensions>
 </hybrisconfig>

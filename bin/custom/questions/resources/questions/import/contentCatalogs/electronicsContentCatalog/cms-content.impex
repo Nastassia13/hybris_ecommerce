@@ -1,0 +1,32 @@
+# -----------------------------------------------------------------------
+# [y] hybris Platform
+#
+# Copyright (c) 2018 SAP SE or an SAP affiliate company.  All rights reserved.
+#
+# This software is the confidential and proprietary information of SAP
+# ("Confidential Information"). You shall not disclose such Confidential
+# Information and shall use it only in accordance with the terms of the
+# license agreement you entered into with SAP.
+# -----------------------------------------------------------------------
+$contentCatalog = electronicsContentCatalog
+$contentCV = catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]), CatalogVersion.version[default=Staged])[default=$contentCatalog:Staged]
+$jarResourceCms = jar:com.hybris.questions.constants.QuestionsConstants&/questions/import/cockpit/cmscockpit
+
+INSERT_UPDATE Question; code[unique = true]; question   ; questionCustomer(uid)[default = 'anonymous']; answer   ; answerCustomer(uid)[default = 'anonymous']; product(code, $contentCV)
+                      ; question1          ; Question 1 ; alistair@hybris.com                         ; Answer 1 ; zohan@customer.com                        ; 816780:electronicsProductCatalog:Online
+                      ; question2          ; Question 2 ; testuser1@test.com                          ;          ;                                           ; 816780:electronicsProductCatalog:Online
+                      ; question3          ; Question 3 ; alistair@hybris.com                         ;          ;                                           ; 816780:electronicsProductCatalog:Online
+                      ; question4          ; Question 4 ; zohan@customer.com                          ; Answer 4 ; testuser1@test.com                        ; 816780:electronicsProductCatalog:Online
+                      ; question5          ; Question 5 ; zohan@customer.com                          ; Answer 5 ; testuser1@test.com                        ; 816780:electronicsProductCatalog:Online
+
+INSERT_UPDATE QuestionsCMSComponent; $contentCV[unique = true]; uid[unique = true] ; name                ; numberOfQuestionsToShow; fontSize; &componentRef      ;
+                                   ;                          ; QuestionsComponent ; Questions Component ; 3                      ; 20      ; QuestionsComponent ;
+
+INSERT_UPDATE ContentSlotName; name[unique = true]; template(uid, $contentCV)[unique = true][default = 'ProductDetailsPageTemplate']; validComponentTypes(code); compTypeGroup(code)
+                             ; QuestionSlot       ;                                                                                 ; QuestionsCMSComponent
+
+INSERT_UPDATE ContentSlot; $contentCV[unique = true]; uid[unique = true]; active; cmsComponents(uid)
+                         ;                          ; QuestionSlot-PDP  ; true  ; QuestionsComponent
+
+INSERT_UPDATE ContentSlotForPage; $contentCV[unique = true]; uid[unique = true]      ; position[unique = true]; page(uid, $contentCV)[unique = true][default = 'productDetails']; contentSlot(uid, $contentCV)[unique = true]
+                                ;                          ; QuestionSlotForPage-PDP ; QuestionSlot           ;                                                                 ; QuestionSlot-PDP
